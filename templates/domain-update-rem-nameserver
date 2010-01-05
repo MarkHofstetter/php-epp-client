@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0
+     epp-1.0.xsd">
+  <command>
+    <update>
+      <domain:update
+       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"
+       xsi:schemaLocation="urn:ietf:params:xml:ns:domain-1.0
+       domain-1.0.xsd">
+        <domain:name>[onload;tplvars;domain][templ.domain]</domain:name>
+        <domain:rem>
+          <domain:ns>
+            <domain:hostAttr>
+              <domain:hostName>[onload;tplvars;ns1][templ.ns1]</domain:hostName>
+              <domain:hostAddr ip="v4">[onload;tplvars;ipv4][templ.ipv4; magnet=domain:hostAddr; noerr]</domain:hostAddr>
+              <domain:hostAddr ip="v6">[onload;tplvars;ipv6][templ.ipv6; magnet=domain:hostAddr; noerr]</domain:hostAddr>
+            </domain:hostAttr>
+          </domain:ns>
+        </domain:rem>
+      </domain:update>
+    </update>
+    <clTRID>[onload;tplvars;trid][templ.trid]</clTRID>
+  </command>
+</epp>
+

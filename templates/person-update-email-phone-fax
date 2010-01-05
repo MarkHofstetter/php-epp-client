@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0
+     epp-1.0.xsd">
+  <command>
+    <update>
+      <contact:update
+       xmlns:contact="urn:ietf:params:xml:ns:contact-1.0"
+       xsi:schemaLocation="urn:ietf:params:xml:ns:contact-1.0
+       contact-1.0.xsd">
+       <contact:id>[onload;tplvars;handle][templ.handle]</contact:id>
+       <contact:chg><contact:email>[onload;tplvars;email][templ.email; magnet=contact:chg; noerr]</contact:email></contact:chg>
+       <contact:chg><contact:fax>[onload;tplvars;fax][templ.fax; magnet=contact:chg; noerr]</contact:fax></contact:chg>
+       <contact:chg><contact:voice>[onload;tplvars;voice][templ.voice; magnet=contact:chg; noerr]</contact:voice></contact:chg>
+      </contact:update>
+    </update>
+    <clTRID>[onload;tplvars;trid][templ.trid]</clTRID>
+  </command>
+</epp>
+
+

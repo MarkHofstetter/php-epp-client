@@ -1,0 +1,16 @@
++ epp client for nic.at
+
++ supported commands (at the moment)
+  - login
+  - domain-create
+  - domain-info
+  - person-create
+
+see templates folder for command xml
+
++ works with php5
+
++ uses (corrected) EPP Client class for PHP, Copyright 2005 CentralNic Ltd  
++ uses TinyButStrong - Template Engine for Pro and Beginners 
+
+  

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0
+     epp-1.0.xsd">
+  <extension>
+    <command
+     xmlns="http://www.nic.at/xsd/at-ext-epp-1.0"
+     xsi:schemaLocation="http://www.nic.at/xsd/at-ext-epp-1.0
+     at-ext-epp-1.0.xsd">
+      <transfer op="execute">
+        <domain:transfer
+         xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"
+         xsi:schemaLocation="urn:ietf:params:xml:ns:domain-1.0
+         domain-1.0.xsd">
+          <domain:name>[onload;tplvars;domain][templ.domain]</domain:name>
+        </domain:transfer>
+      </transfer>
+      <extension>
+        <at-ext-domain:transfer
+         xmlns:at-ext-domain="http://www.nic.at/xsd/at-ext-domain-1.0"
+         xsi:schemaLocation="http://www.nic.at/xsd/at-ext-domain-1.0
+         at-ext-domain-1.0.xsd">
+           <at-ext-domain:token>[onload;tplvars;token][templ.token]</at-ext-domain:token>
+        </at-ext-domain:transfer>
+      </extension>
+      <clTRID>[onload;tplvars;trid][templ.trid]</clTRID>
+    </command>
+  </extension>
+</epp>

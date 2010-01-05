@@ -1,0 +1,17 @@
+<config>
+  <DEBUG>0</DEBUG>    
+  <server>  
+    <host>epp.nic.at</host>
+    <port>700</port>
+    <timeout>10</timeout>
+    <ssl>true</ssl>
+  </server>
+  <user>
+    <login>regid</login>
+    <pw>passworf</pw>
+    <trid>1234</trid>
+  </user>
+  <settings>
+    <path>/home/mh/php-epp-client</path>
+  </settings>
+</config>
