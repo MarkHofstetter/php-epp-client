@@ -4,13 +4,42 @@ session_start();
 
 require ('xajax_core/xajax.inc.php');
 require ('Net/EPP/AT/Client.php');
-require ('get_commands.php');
+# require ('get_commands.php');
 
 //FTT2699354
 
 $xajax = new xajax();
-//$xajax->setFlag('debug',true);
+# $xajax->setFlag('debug',true);
 $xajax->configure('javascript URI', '.');
+
+function get_commands_from_dir($dir) {
+
+  if ($handle = opendir($dir)) {
+    //return $dir;
+    while (false !== ($file = readdir($handle))) {
+        if (substr($file, 0, 1) == "." ) { continue; }  // if file starts with a . skip it
+        // return $file;
+        $files[] = $file;
+    }  
+  closedir($handle);
+  sort($files);
+  return $files;
+  }
+  return "Error no commands found at $dir";
+}
+
+function get_config($dir, $cf) {
+  $configs = get_commands_from_dir($dir); // misuse and rape me, wrong name for function 
+  $config  = sprintf('%s/%s', $dir, $configs[0]);
+  $c = simplexml_load_file($config);
+  return $c; 
+}
+
+function get_config_list($dir) {
+  $configs = get_commands_from_dir($dir); // misuse and rape me, wrong name for function 
+  return $configs; 
+}
+
 
 function format_command($command, $dir) {   
    return sprintf('<a href=\'\' onclick=\'js_get_params("%s"); return false;\'>%s</a><br>', $command, $command);
@@ -59,11 +88,12 @@ function get_commands() {
     
     
     $c = get_config('config', 0);
+    
     $info .= sprintf("Host [%s], Port [%s], User [%s]",
        $c->server->host,
        $c->server->port,
        $c->user->login);
-    $objResponse->assign('registrar_info', 'innerHTML',  $config_list . $info);  
+    $objResponse->assign('registrar_info', 'innerHTML',  'lulu'. $config_list . $info);  
     
     $commands = get_commands_from_dir('./templates');
     if (count($commands) < 1) {throw new Exception("no templates found in $dir");}
