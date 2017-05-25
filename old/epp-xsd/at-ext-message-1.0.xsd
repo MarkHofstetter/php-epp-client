@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+   <schema targetNamespace="http://www.nic.at/xsd/at-ext-message-1.0"
+           xmlns:at-ext-message="http://www.nic.at/xsd/at-ext-message-1.0"
+           xmlns:at-ext-data="http://www.nic.at/xsd/at-ext-data-1.0"
+           xmlns:epp="urn:ietf:params:xml:ns:epp-1.0"
+           xmlns="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    <!--  Import common element types.  -->
+
+    <import namespace="urn:ietf:params:xml:ns:epp-1.0"
+            schemaLocation="epp-1.0.xsd"/>
+    <import namespace="http://www.nic.at/xsd/at-ext-data-1.0"
+            schemaLocation="at-ext-data-1.0.xsd"/>
+
+    <annotation>
+      <documentation>
+        Extensible Provisioning Protocol v1.0
+        .AT message schema.
+      </documentation>
+    </annotation>
+
+    <element name="message" type="at-ext-message:messageType"/>
+
+    <complexType name="messageType">
+      <sequence>
+        <element name="desc"    type="string"/>
+        <element name="reftrID" type="at-ext-message:reftrIDType"
+         minOccurs="0"/>
+        <element name="data"    type="at-ext-message:messageDataType"
+         minOccurs="0"/>
+      </sequence>
+      <attribute name="type" type="at-ext-message:messageTypeType"
+       use="required"/>
+    </complexType>
+
+    <complexType name="messageDataType">
+      <sequence>
+        <element name="entry" type="at-ext-data:attributeType"
+         maxOccurs="unbounded"   minOccurs="0"/>
+        <any namespace="##other" minOccurs="0"/>
+      </sequence>
+    </complexType>
+
+    <simpleType name="messageTypeType">
+      <restriction base="token">
+        <maxLength value="100"/>
+      </restriction>
+    </simpleType>
+
+    <complexType name="reftrIDType">
+      <sequence>
+        <element name="clTRID" type="epp:trIDStringType"
+         minOccurs="0"/>
+        <element name="svTRID" type="epp:trIDStringType"/>
+      </sequence>
+    </complexType>
+
+</schema>
+

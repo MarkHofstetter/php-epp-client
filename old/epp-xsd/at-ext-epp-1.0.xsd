@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <schema targetNamespace="http://www.nic.at/xsd/at-ext-epp-1.0"
+          xmlns:at-ext-epp="http://www.nic.at/xsd/at-ext-epp-1.0"
+          xmlns:at-ext-data="http://www.nic.at/xsd/at-ext-data-1.0"
+          xmlns:epp="urn:ietf:params:xml:ns:epp-1.0"
+          xmlns:eppcom="urn:ietf:params:xml:ns:eppcom-1.0"
+          xmlns="http://www.w3.org/2001/XMLSchema"
+          elementFormDefault="qualified">
+
+  <!--
+  Import common element types.
+  -->
+    <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"
+            schemaLocation="eppcom-1.0.xsd"/>
+    <import namespace="urn:ietf:params:xml:ns:epp-1.0"
+            schemaLocation="epp-1.0.xsd"/>
+    <import namespace="http://www.nic.at/xsd/at-ext-data-1.0"
+            schemaLocation="at-ext-data-1.0.xsd"/>
+
+
+    <annotation>
+      <documentation>
+        Extensible Provisioning Protocol v1.0 schema.
+        .AT extensions
+      </documentation>
+    </annotation>
+
+
+    <element name="command"  type="at-ext-epp:commandType"/>
+
+  <!--
+  Command types.
+  -->
+    <complexType name="commandType">
+      <sequence>
+        <choice>
+          <element name="transfer" type="at-ext-epp:transferType"/>
+          <element name="withdraw" type="at-ext-epp:withdrawType"/>
+        </choice>
+        <element name="extension" type="epp:extAnyType"
+         minOccurs="0"/>
+        <element name="clTRID" type="epp:trIDStringType"
+         minOccurs="0"/>
+      </sequence>
+    </complexType>
+
+  <!--
+  The <transfer> command. This is object-specific, and uses
+  attributes to identify the requested operation.
+  -->
+    <complexType name="transferType">
+      <sequence>
+        <any namespace="##other"/>
+      </sequence>
+      <attribute name="op" type="at-ext-epp:transferOpType"
+       use="required"/>
+    </complexType>
+
+    <simpleType name="transferOpType">
+      <restriction base="token">
+        <enumeration value="execute"/>
+      </restriction>
+    </simpleType>
+
+    <complexType name="withdrawType">
+      <sequence>
+        <any namespace="##other"/>
+      </sequence>
+    </complexType>
+
+    <!-- facets -->
+
+    <element name="extended" type="at-ext-epp:facetListType"/>
+
+    <complexType name="facetListType">
+      <sequence>
+        <element name="facet" type="at-ext-data:attributeType"
+         maxOccurs="100"/>
+      </sequence>
+    </complexType>
+
+  </schema>
+

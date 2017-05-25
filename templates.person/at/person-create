@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0
+     epp-1.0.xsd">
+  <command>
+    <create>
+      <contact:create
+       xmlns:contact="urn:ietf:params:xml:ns:contact-1.0"
+       xsi:schemaLocation="urn:ietf:params:xml:ns:contact-1.0
+       contact-1.0.xsd">
+        <contact:id>AUTO</contact:id>
+        <contact:postalInfo type="int">
+          <contact:name>[onload;tplvars;name][templ.name]</contact:name>
+          <contact:org>[onload;tplvars;org][templ.org; magnet=contact:org; noerr]</contact:org>                      
+          <contact:addr>
+            <contact:street>[onload;tplvars;street1][templ.street1]</contact:street>
+            <contact:street>[onload;tplvars;street2][templ.street2]</contact:street>
+            <contact:city>[onload;tplvars;city][templ.city]</contact:city>            
+            <contact:pc>[onload;tplvars;pc][templ.pc]</contact:pc>
+            <contact:cc>[onload;tplvars;cc][templ.cc]</contact:cc>
+          </contact:addr>
+        </contact:postalInfo>
+
+        <contact:voice x="1234">[onload;tplvars;voice][templ.voice]</contact:voice>  
+        
+        <contact:email>[onload;tplvars;email][templ.email]</contact:email>
+        
+        <contact:authInfo>
+          <contact:pw></contact:pw>
+        </contact:authInfo>
+        <contact:disclose flag="0">
+          <contact:voice/>
+          <contact:email/>
+      
+        </contact:disclose>
+      </contact:create>
+    </create>
+    <extension>
+      <at-ext-contact:create
+       xmlns:at-ext-contact="http://www.nic.at/xsd/at-ext-contact-1.0"
+       xsi:schemaLocation="http://www.nic.at/xsd/at-ext-contact-1.0
+       at-ext-contact-1.0.xsd">
+         <at-ext-contact:type> [onload;tplvars;type][templ.type] </at-ext-contact:type>
+      </at-ext-contact:create>
+    </extension>
+    <clTRID>[onload;tplvars;trid][templ.trid]</clTRID>
+  </command>
+</epp>
+

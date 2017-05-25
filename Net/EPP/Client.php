@@ -18,18 +18,20 @@
 
 	/**
 	* A simple client class for the Extensible Provisioning Protocol (EPP)
-	* @package Net_EPP_Client
-	* @version 0.0.2
+	* @package Net_EPP
+	* @version 0.0.4
 	* @author Gavin Brown <gavin.brown@nospam.centralnic.com>
+	* @revision $Id: Client.php,v 1.13 2010/10/21 11:55:07 gavin Exp $
 	*/
 
 	require_once('PEAR.php');
+	require_once('Net/EPP/Protocol.php');
 
-	$GLOBALS[Net_EPP_Client_Version] = '0.0.1';
+	$GLOBALS['Net_EPP_Client_Version'] = '0.0.4';
 
 	/**
 	* A simple client class for the Extensible Provisioning Protocol (EPP)
-	* @package Net_EPP_Client
+	* @package Net_EPP
 	*/
 	class Net_EPP_Client {
 
@@ -44,22 +46,29 @@
 		* established, then this method will call getFrame() and return the EPP <greeting>
 		* frame which is sent by the server upon connection. If connection fails, then
 		* a PEAR_Error object explaining the error will be returned instead.
-		* @param string the hostname
-		* @param integer the TCP port
-		* @param integer the timeout in seconds
-		* @param boolean whether to connect using SSL
+		* @param string $host the hostname
+		* @param integer $port the TCP port
+		* @param integer $timeout the timeout in seconds
+		* @param boolean $ssl whether to connect using SSL
+		* @param resource $context a stream resource to use when setting up the socket connection
 		* @return PEAR_Error|string a PEAR_Error on failure, or a string containing the server <greeting>
 		*/
-		function connect($host, $port=700, $timeout=1, $ssl=true) {		  
-			$target = sprintf('%s://%s', ($ssl === true ? 'ssl' : 'tcp'), $host);						
-						
-			$socket = fsockopen($target, $port, $errno, $errstr, $timeout);
-			
-			if (!$socket) {
-				return new PEAR_Error("Error connecting to $target: $errstr (code $errno)");
+		function connect($host, $port=700, $timeout=1, $ssl=true, $context=NULL) {
+			$target = sprintf('%s://%s:%d', ($ssl === true ? 'tls' : 'tcp'), $host, $port);
+			if (is_resource($context)) {
+				$result = stream_socket_client($target, $errno, $errstr, $timeout, STREAM_CLIENT_CONNECT, $context);
+
 			} else {
-				$this->socket = $socket;
+				$result = stream_socket_client($target, $errno, $errstr, $timeout, STREAM_CLIENT_CONNECT);
+
+			}
+			if (!$result) {
+				return new PEAR_Error("Error connecting to $target: $errstr (code $errno)");
+
+			} else {
+				$this->socket = $result;
 				return $this->getFrame();
+
 			}
 
 		}
@@ -73,19 +82,7 @@
 		* @return PEAR_Error|string a PEAR_Error on failure, or a string containing the frame
 		*/
 		function getFrame() {
-			if (feof($this->socket)) return new PEAR_Error("Connection appears to have closed.");
-
-			$hdr = @fread($this->socket, 4);
-
-			if (empty($hdr)) {
-				return new PEAR_Error("Error reading from server: $php_errormsg");
-
-			} else {
-				$unpacked = unpack('N', $hdr);
-				$answer = fread($this->socket, ($unpacked[1] - 4));
-
-				return $answer;
-			}
+			return Net_EPP_Protocol::getFrame($this->socket);
 		}
 
 		/**
@@ -95,8 +92,17 @@
 		* @return boolean the result of the fwrite() operation
 		*/
 		function sendFrame($xml) {
-			return @fwrite($this->socket, pack('N', (strlen($xml)+4)).$xml);
+			return Net_EPP_Protocol::sendFrame($this->socket, $xml);
+		}
 
+		/**
+		* a wrapper around sendFrame() and getFrame()
+		* @param string $xml the frame to send to the server
+		* @return PEAR_Error|string the frame returned by the server, or an error object
+		*/
+		function request($xml) {
+			$this->sendFrame($xml);
+			return $this->getFrame();
 		}
 
 		/**
@@ -109,6 +115,15 @@
 		function disconnect() {
 			return @fclose($this->socket);
 		}
+
+		/**
+		* ping the connection to check that it's up
+		* @return boolean
+		*/
+		function ping() {
+			return (!is_resource($this->socket) || feof($this->socket) ? false : true);
+		}
+
 	}
 
 ?>

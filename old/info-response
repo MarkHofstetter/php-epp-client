@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+    <response>
+        <result code="1000">
+            <msg lang="en">Command completed successfully</msg>
+        </result>
+        <resData>
+            <domain:infData xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
+                <domain:name>test-partner-domain-1.ch</domain:name>
+                <domain:roid>D3337848-SWITCH</domain:roid>
+                <domain:status s="ok"/>
+                <domain:registrant>TEST-PARTNER-14</domain:registrant>
+                <domain:contact type="tech">TEST-PARTNER-14</domain:contact>
+                <domain:ns>
+                    <domain:hostObj>ns2.bla.at</domain:hostObj>
+                    <domain:hostObj>ns1.bla.at</domain:hostObj>
+                </domain:ns>
+                <domain:host>ns3.test-partner-domain-1.ch</domain:host>
+                <domain:clID>TEST-PARTNER-B</domain:clID>
+                <domain:exDate>2011-04-30T00:00:00+02:00</domain:exDate>
+                <domain:authInfo>
+                    <domain:pw>123456</domain:pw>
+                </domain:authInfo>
+            </domain:infData>
+        </resData>
+        <trID>
+            <clTRID>1270814402</clTRID>
+            <svTRID>20100409.4382425.49757957</svTRID>
+        </trID>
+    </response>
+</epp>

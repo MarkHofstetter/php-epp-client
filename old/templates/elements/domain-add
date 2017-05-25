@@ -1,0 +1,6 @@
+<domain:add>
+  <domain:ns>                    
+  [onload;tplvars;domain-add-ns][templ.domain-add; htmlconv=no; ; magnet=domain:ns; noerr]
+  </domain:ns>
+  [onload;tplvars;domain-add-contact][templ.domain-add-contact; htmlconv=no; noerr]         
+</domain:add>

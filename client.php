@@ -30,13 +30,13 @@ $epp = new Net_EPP_AT_Client();
 */
 
 $param[] = array('login' => $c->user->login, 
-                 'pwd'   => $c->user->pw, 
+                 'pw'   => $c->user->pw, 
                  'trid'  => $c->user->trid);
 
 $epp->command('login', $param);
 unset($param);
 
-$frame = new Epp_Frame(); 
+$frame = new xml_Frame(); 
 //$epp->TemplateDir('templates');
 $params = $frame->get_params($command, $epp->TemplateDir);
 ## print_r($params);

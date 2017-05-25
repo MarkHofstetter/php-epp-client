@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <schema targetNamespace="http://www.nic.at/xsd/at-ext-contact-1.0"
+          xmlns:at-ext-contact="http://www.nic.at/xsd/at-ext-contact-1.0"
+          xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"
+          xmlns:epp="urn:ietf:params:xml:ns:epp-1.0"
+          xmlns:eppcom="urn:ietf:params:xml:ns:eppcom-1.0"
+          xmlns="http://www.w3.org/2001/XMLSchema"
+          elementFormDefault="qualified">
+
+  <!--
+  Import common element types.
+  -->
+    <import namespace="urn:ietf:params:xml:ns:domain-1.0"
+            schemaLocation="domain-1.0.xsd"/>
+    <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"
+            schemaLocation="eppcom-1.0.xsd"/>
+    <import namespace="urn:ietf:params:xml:ns:epp-1.0"
+            schemaLocation="epp-1.0.xsd"/>
+
+    <annotation>
+      <documentation>
+        Extensible Provisioning Protocol v1.0
+        AT extensions
+      </documentation>
+    </annotation>
+
+    <!-- contact type extension -->
+
+    <element name="create"  type="at-ext-contact:createType"/>
+    <element name="update"  type="at-ext-contact:updateType"/>
+    <element name="infData" type="at-ext-contact:createType"/>
+
+    <complexType name="createType">
+       <sequence>
+         <element name="type" type="at-ext-contact:contactTypeType"/>
+       </sequence>
+    </complexType>
+
+    <complexType name="updateType">
+       <sequence>
+         <element name="chg" type="at-ext-contact:chgType"/>
+       </sequence>
+    </complexType>
+
+    <complexType name="chgType">
+       <sequence>
+         <element name="type" type="at-ext-contact:contactTypeType"/>
+       </sequence>
+    </complexType>
+
+    <simpleType name="contactTypeType">
+       <restriction base="token">
+         <enumeration value="privateperson"/>
+         <enumeration value="role"/>
+         <enumeration value="organisation"/>
+         <enumeration value="unspecified"/>
+       </restriction>
+    </simpleType>
+
+
+  </schema>

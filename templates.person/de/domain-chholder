@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<registry-request
+ xmlns="http://registry.denic.de/global/1.0"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:domain="http://registry.denic.de/domain/1.0"
+ xmlns:dnsentry="http://registry.denic.de/dnsentry/1.0">
+
+ <domain:chholder>
+  <domain:handle>[onload;tplvars;domain][templ.domain]</domain:handle>
+
+  <domain:contact role="holder">[onload;tplvars;registrant][templ.registrant]</domain:contact>
+  <domain:contact role="admin-c">[onload;tplvars;admin][templ.admin]</domain:contact>
+  <domain:contact role="tech-c">[onload;tplvars;tech][templ.tech]</domain:contact>
+  <domain:contact role="zone-c">[onload;tplvars;zone][templ.zone]</domain:contact>
+
+  <dnsentry:dnsentry xsi:type="dnsentry:NS">
+<dnsentry:owner>[onload;tplvars;domain][templ.domain]</dnsentry:owner>
+     <dnsentry:rdata>
+        <dnsentry:nameserver>[onload;tplvars;host1][templ.host1]</dnsentry:nameserver>
+     </dnsentry:rdata>
+  </dnsentry:dnsentry>
+
+  <dnsentry:dnsentry xsi:type="dnsentry:NS">
+<dnsentry:owner>[onload;tplvars;domain][templ.domain]</dnsentry:owner>
+     <dnsentry:rdata>
+        <dnsentry:nameserver>[onload;tplvars;host2][templ.host2]</dnsentry:nameserver>
+     </dnsentry:rdata>
+  </dnsentry:dnsentry>
+
+ </domain:chholder>
+ <ctid>[onload;tplvars;trid][templ.trid]</ctid>
+</registry-request>
+

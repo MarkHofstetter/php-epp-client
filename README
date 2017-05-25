@@ -1,16 +1,18 @@
-+ epp client for nic.at
+PREREQUISITES:
+=============
 
-+ supported commands (at the moment)
-  - login
-  - domain-create
-  - domain-info
-  - person-create
++ you need a valid access to an epp server
 
-see templates folder for command xml
+FEATURES:
+========
++ example implementation client.php
 
-+ works with php5
+CONFIGURATION:
+=============
 
-+ uses (corrected) EPP Client class for PHP, Copyright 2005 CentralNic Ltd  
-+ uses TinyButStrong - Template Engine for Pro and Beginners 
++ an example for a configuration can be found as example-epp-config.xml
+  in this directory.
+  copy it to config/foo1.xml and edit it according to your setup.
 
-  
++ Command templates can be found in the templates directory.
+

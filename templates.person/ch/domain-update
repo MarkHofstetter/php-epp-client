@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?> 
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"> 
+  <command> 
+    <update> 
+      <domain:update 
+       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"> 
+        <domain:name>[onload;tplvars;domain][templ.domain]</domain:name> 
+        <domain:add> 
+          <domain:ns> 
+            <domain:hostObj>[onload;tplvars;ns1add][templ.ns1add; magnet=domain:ns; noerr]</domain:hostObj> 
+          </domain:ns> 
+         <domain:contact type="tech">[onload;tplvars;tech][templ.tech; magnet=domain:contact; noerr]</domain:contact> 
+        </domain:add> 
+        <domain:rem> 
+          <domain:ns> 
+            <domain:hostObj>[onload;tplvars;ns1rem][templ.ns1rem; magnet=domain:ns; noerr]</domain:hostObj> 
+          </domain:ns> 
+        </domain:rem> 
+        <domain:chg> 
+          <domain:registrant>[onload;tplvars;registrant][templ.registrant]</domain:registrant>  
+        </domain:chg> 
+      </domain:update> 
+    </update> 
+    <clTRID>Test3</clTRID> 
+  </command> 
+</epp> 

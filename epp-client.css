@@ -1,6 +1,10 @@
+/* .old_data {background-color: rgba(255, 0, 0, .15); color: gray;} */
+.old_data {color: gray;}
+.stale_data {color: rgba(128, 0, 0, .25);}
+.failed {color: rgba(255, 0, 0, 1);}
+
 #c1 { width:250px; float:left; padding:0px 0px 0px 0px;text-align:left; }
 #c2 { width:250px; float:left; padding:0px; margin:0px; overflow:hidden; }
-#c3 { width:800px; fixed:left; padding:0px; margin:0px; overflow:hidden; }
-#c4 { width:1000px; fixed:left; padding:0px; margin:0px; overflow:hidden; 
+#c3 { width:800px; fixed:left; padding:0px; margin:0px; float:left; }
 
 #xmlformat 

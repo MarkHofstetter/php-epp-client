@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<registry-request
+xmlns="http://registry.denic.de/global/1.0"
+xmlns:domain="http://registry.denic.de/domain/1.0">
+<domain:info recursive="false" withProvider="false">
+<domain:handle>[onload;tplvars;domain][templ.domain]</domain:handle>
+</domain:info>
+</registry-request>
+

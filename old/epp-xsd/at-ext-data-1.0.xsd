@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+   <schema targetNamespace="http://www.nic.at/xsd/at-ext-data-1.0"
+           xmlns:at-ext-data="http://www.nic.at/xsd/at-ext-data-1.0"
+           xmlns="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    <annotation>
+      <documentation>
+        Extensible Provisioning Protocol v1.0
+        .AT data schema.
+      </documentation>
+    </annotation>
+
+    <complexType name="attributeType">
+       <simpleContent>
+         <extension base="string">
+           <attribute name="name" type="token"
+            use="required"/>
+         </extension>
+       </simpleContent>
+    </complexType>
+
+</schema>
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"> 
+  <response> 
+    <result code="1000"> 
+      <msg lang="en">Command completed successfully</msg> 
+    </result> 
+    <msgQ count="1" id="1139047"> 
+      <qDate>2007-09-26T00:00:00+02:00</qDate> 
+      <msg>Domain transfercode</msg> 
+    </msgQ> 
+    <trID> 
+      <clTRID>ABC.1</clTRID> 
+      <svTRID>20071008.13747.27297</svTRID> 
+    </trID> 
+  </response> 
+</epp>

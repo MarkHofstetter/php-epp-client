@@ -1,0 +1,10 @@
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <command>
+    <check>
+      <host:check xmlns:host="urn:ietf:params:xml:ns:host-1.0">
+        <host:name>[onload;tplvars;host][templ.host]</host:name>
+      </host:check>
+    </check>
+    <clTRID>[onload;tplvars;trid][templ.trid]</clTRID>
+  </command>
+</epp>

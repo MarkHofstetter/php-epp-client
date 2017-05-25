@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0
+     epp-1.0.xsd">
+  <command>
+    <create>
+      <domain:create
+       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"
+       xsi:schemaLocation="urn:ietf:params:xml:ns:domain-1.0
+       domain-1.0.xsd">
+        <domain:name>[onload;tplvars;domain][templ.domain]</domain:name>
+        <domain:ns>
+          <domain:hostAttr>
+            <domain:hostName>[onload;tplvars;ns1][templ.ns1]</domain:hostName>
+          </domain:hostAttr>
+          <domain:hostAttr>
+            <domain:hostName>[onload;tplvars;ns2][templ.ns2]</domain:hostName>
+          </domain:hostAttr>
+        </domain:ns>
+        <domain:registrant>[onload;tplvars;registrant][templ.registrant]</domain:registrant>
+        <domain:contact type="admin">[onload;tplvars;admin][templ.admin]</domain:contact>
+        <domain:contact type="tech">[onload;tplvars;tech][templ.tech]</domain:contact>
+        <domain:authInfo>
+          <domain:pw></domain:pw>
+        </domain:authInfo>
+      </domain:create>
+    </create>
+    <extension>
+    <secDNS:create xmlns:secDNS="urn:ietf:params:xml:ns:secDNS-1.1"
+    xsi:schemaLocation="urn:ietf:params:xml:ns:secDNS-1.1 secDNS-1.1.xsd">
+      <secDNS:dsData>
+        <secDNS:keyTag>[onload;tplvars;secdns-keytag][templ.secdns-keytag]</secDNS:keyTag>
+        <secDNS:alg>[onload;tplvars;secdns-alg][templ.secdns-alg]</secDNS:alg>
+        <secDNS:digestType>[onload;tplvars;secdns-digestType][templ.secdns-digestType]</secDNS:digestType>
+        <secDNS:digest>[onload;tplvars;secdns-digest][templ.secdns-digest]<secDNS:digest>
+      </secDNS:dsData>
+    </secDNS:create>
+    [onload.secdns-digest; magnet=extension; noerr]
+    </extension>
+    <clTRID>[onload;tplvars;trid][templ.trid]</clTRID>
+  </command>
+</epp>

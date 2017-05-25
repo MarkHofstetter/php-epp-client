@@ -1,7 +1,8 @@
 <config>
-  <DEBUG>0</DEBUG>    
-  <server>  
+  <DEBUG>0</DEBUG>
+  <server>
     <host>epp.nic.at</host>
+    <protocol>EPP</protocol> <!-- EPP or RRI; default: EPP -->
     <port>700</port>
     <timeout>10</timeout>
     <ssl>true</ssl>
@@ -13,5 +14,14 @@
   </user>
   <settings>
     <path>/home/mh/php-epp-client</path>
+    <!-- optionally set templates to use.
+         From most specific to least specific, i.e. later templates
+         are ignored if they already exists in a former directory
+    -->
+    <templates>at</templates>
+    <templates>.</templates>
+    <!-- List of commands that are not displayed in the UI -->
+    <disabled_commands>login</disabled_commands>
+    <disabled_commands>logout</disabled_commands>
   </settings>
 </config>

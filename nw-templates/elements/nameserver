@@ -1,0 +1,15 @@
+            <domain:hostAttr>              
+              <domain:hostName>[onload;tplvars;ns][templ.ns;]</domain:hostName> 
+              <domain:hostAddr ip="v4">[onload;tplvars;ipv4ns_1][templ.ipv4ns_1; magnet=domain:hostAddr; noerr]</domain:hostAddr>
+              <domain:hostAddr ip="v4">[onload;tplvars;ipv4ns_2][templ.ipv4ns_2; magnet=domain:hostAddr; noerr]</domain:hostAddr>
+              <domain:hostAddr ip="v4">[onload;tplvars;ipv4ns_3][templ.ipv4ns_3; magnet=domain:hostAddr; noerr]</domain:hostAddr>
+              <domain:hostAddr ip="v4">[onload;tplvars;ipv4ns_4][templ.ipv4ns_4; magnet=domain:hostAddr; noerr]</domain:hostAddr>
+              <domain:hostAddr ip="v4">[onload;tplvars;ipv4ns_5][templ.ipv4ns_5; magnet=domain:hostAddr; noerr]</domain:hostAddr>
+              <domain:hostAddr ip="v4">[onload;tplvars;ipv4ns_6][templ.ipv4ns_6; magnet=domain:hostAddr; noerr]</domain:hostAddr>
+              <domain:hostAddr ip="v6">[onload;tplvars;ipv6ns_1][templ.ipv6ns_1; magnet=domain:hostAddr; noerr]</domain:hostAddr>
+              <domain:hostAddr ip="v6">[onload;tplvars;ipv6ns_2][templ.ipv6ns_2; magnet=domain:hostAddr; noerr]</domain:hostAddr>
+              <domain:hostAddr ip="v6">[onload;tplvars;ipv6ns_3][templ.ipv6ns_3; magnet=domain:hostAddr; noerr]</domain:hostAddr>
+              <domain:hostAddr ip="v6">[onload;tplvars;ipv6ns_4][templ.ipv6ns_4; magnet=domain:hostAddr; noerr]</domain:hostAddr>
+              <domain:hostAddr ip="v6">[onload;tplvars;ipv6ns_5][templ.ipv6ns_5; magnet=domain:hostAddr; noerr]</domain:hostAddr>
+              <domain:hostAddr ip="v6">[onload;tplvars;ipv6ns_6][templ.ipv6ns_6; magnet=domain:hostAddr; noerr]</domain:hostAddr>
+            </domain:hostAttr>

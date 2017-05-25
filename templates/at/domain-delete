@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0
+     epp-1.0.xsd">
+  <command>
+    <delete>
+      <domain:delete
+       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"
+       xsi:schemaLocation="urn:ietf:params:xml:ns:domain-1.0
+       domain-1.0.xsd">
+        <domain:name>[onload;tplvars;domain][templ.domain]</domain:name>
+      </domain:delete>
+    </delete>
+    <extension>
+      <at-ext-domain:delete
+       xmlns:at-ext-domain="http://www.nic.at/xsd/at-ext-domain-1.0"
+       xsi:schemaLocation="http://www.nic.at/xsd/at-ext-domain-1.0
+       at-ext-domain-1.0.xsd">
+         <at-ext-domain:scheduledate>[onload;tplvars;scheduledate][templ.scheduledate]</at-ext-domain:scheduledate>
+      </at-ext-domain:delete>
+    </extension>
+    <clTRID>[onload;tplvars;trid][templ.trid]</clTRID>
+  </command>
+</epp>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<registry-request xmlns="http://registry.denic.de/global/1.0" xmlns:domain="http://registry.denic.de/domain/1.0">
+  <domain:delete>
+  <domain:handle>[onload;tplvars;domain][templ.domain]</domain:handle>
+  <domain:contact role="holder">[onload;tplvars;registrant][templ.registrant]</domain:contact>
+  <domain:contact role="holder">[onload;tplvars;registrant1][templ.registrant1; magnet=domain:contact; noerr]</domain:contact>
+  </domain:delete>
+  <ctid>[onload;tplvars;trid][templ.trid]</ctid>
+</registry-request>

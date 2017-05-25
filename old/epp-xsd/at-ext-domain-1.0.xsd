@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <schema targetNamespace="http://www.nic.at/xsd/at-ext-domain-1.0"
+          xmlns:at-ext-domain="http://www.nic.at/xsd/at-ext-domain-1.0"
+          xmlns:at-ext-data="http://www.nic.at/xsd/at-ext-data-1.0"
+          xmlns:epp="urn:ietf:params:xml:ns:epp-1.0"
+          xmlns:eppcom="urn:ietf:params:xml:ns:eppcom-1.0"
+          xmlns="http://www.w3.org/2001/XMLSchema"
+          elementFormDefault="qualified">
+
+  <!--
+  Import common element types.
+  -->
+    <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"
+            schemaLocation="eppcom-1.0.xsd"/>
+    <import namespace="http://www.nic.at/xsd/at-ext-data-1.0"
+            schemaLocation="at-ext-data-1.0.xsd"/>
+
+
+    <annotation>
+      <documentation>
+        Extensible Provisioning Protocol v1.0
+        .AT extensions
+      </documentation>
+    </annotation>
+
+
+  <!--
+  transfer-token, to be used in within command's
+  extension for domain transfer
+  -->
+
+    <element name="transfer"   type="at-ext-domain:transferExtensionType"/>
+
+    <complexType name="transferExtensionType">
+       <sequence>
+         <element name="token" type="at-ext-domain:transferTokenType"/>
+       </sequence>
+    </complexType>
+
+    <simpleType name="transferTokenType">
+       <restriction base="token">
+         <minLength value="1"/>
+         <maxLength value="512"/>
+       </restriction>
+    </simpleType>
+
+
+  <!--
+  scheduledate. to be used within command's extension for
+  domain delete.
+  -->
+
+    <element name="delete" type="at-ext-domain:deleteExtensionType"/>
+
+    <complexType name="deleteExtensionType">
+       <sequence>
+         <element name="scheduledate" type="at-ext-domain:scheduleDateType"/>
+       </sequence>
+    </complexType>
+
+    <simpleType name="scheduleDateType">
+       <restriction base="token">
+         <enumeration value="now"/>
+         <enumeration value="expiration"/>
+       </restriction>
+    </simpleType>
+
+    <element name="withdraw" type="at-ext-domain:withdrawType"/>
+
+  <!--
+  Child elements of the <withdraw> command.
+  -->
+
+    <complexType name="withdrawType">
+      <sequence>
+        <element name="name" type="eppcom:labelType"/>
+        <element name="zd" type="at-ext-domain:zdType"
+         minOccurs="0"/>
+      </sequence>
+    </complexType>
+
+    <complexType name="zdType">
+      <attribute name="value" type="boolean" use="required"/>
+    </complexType>
+
+    <element name="clientdata" type="at-ext-domain:entryListType"/>
+
+    <complexType name="entryListType">
+      <sequence>
+        <element name="entry" type="at-ext-data:attributeType"
+         maxOccurs="100"/>
+      </sequence>
+    </complexType>
+
+    <element name="keydate" type="token"/>
+
+  </schema>
+
+

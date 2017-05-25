@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+   <registry-request xmlns="http://registry.denic.de/global/1.0">
+     <login>
+       <user>[templ.login]</user>
+       <password>[templ.pw]</password>
+     </login>
+   </registry-request>

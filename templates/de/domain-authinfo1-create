@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<registry-request xmlns='http://registry.denic.de/global/1.0' xmlns:domain='http://registry.denic.de/domain/1.0'>
+  <domain:createAuthInfo1 hash='[onload;tplvars;authinfo1][templ.authinfo1]'>
+  <domain:handle>[onload;tplvars;domain][templ.domain]</domain:handle>
+  </domain:createAuthInfo1>
+ <ctid>[onload;tplvars;trid][templ.trid]</ctid>
+</registry-request>
+

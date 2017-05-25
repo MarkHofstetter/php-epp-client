@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+   <schema targetNamespace="http://www.nic.at/xsd/at-ext-result-1.0"
+           xmlns:at-ext-result="http://www.nic.at/xsd/at-ext-result-1.0"
+           xmlns:at-ext-data="http://www.nic.at/xsd/at-ext-data-1.0"
+           xmlns:epp="urn:ietf:params:xml:ns:epp-1.0"
+           xmlns="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    <!--  Import common element types.  -->
+
+    <import namespace="urn:ietf:params:xml:ns:epp-1.0"
+            schemaLocation="epp-1.0.xsd"/>
+    <import namespace="http://www.nic.at/xsd/at-ext-data-1.0"
+            schemaLocation="at-ext-data-1.0.xsd"/>
+
+    <annotation>
+      <documentation>
+        Extensible Provisioning Protocol v1.0
+        .AT result schema.
+      </documentation>
+    </annotation>
+
+    <element name="conditions" type="at-ext-result:conditionListType"/>
+
+    <complexType name="conditionListType">
+      <sequence>
+        <element name="condition" type="at-ext-result:conditionType"
+         maxOccurs="unbounded"/>
+      </sequence>
+    </complexType>
+
+    <complexType name="conditionType">
+      <sequence>
+        <element name="msg"        type="string"/>
+        <element name="details"    type="string"/>
+        <element name="attributes" type="at-ext-result:attributeListType"
+         minOccurs="0"/>
+      </sequence>
+      <attribute name="code"     type="at-ext-result:conditionCodeType"
+       use="required"/>
+      <attribute name="severity" type="at-ext-result:conditionSeverityType"
+       use="required"/>
+    </complexType>
+
+    <complexType name="attributeListType">
+      <sequence>
+        <element name="attr" type="at-ext-data:attributeType"
+         maxOccurs="unbounded"/>
+      </sequence>
+    </complexType>
+
+    <simpleType name="conditionCodeType">
+      <restriction base="token">
+        <pattern value="[A-Z\d]+"/>
+        <maxLength value="24"/>
+      </restriction>
+    </simpleType>
+
+    <simpleType name="conditionSeverityType">
+      <restriction base="token">
+        <enumeration value="info"/>
+        <enumeration value="warning"/>
+        <enumeration value="error"/>
+        <enumeration value="fatal"/>
+      </restriction>
+    </simpleType>
+
+</schema>

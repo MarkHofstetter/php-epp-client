@@ -1,0 +1,12 @@
++ epp client for nic.at
+
++ all commands supported 
+
+see templates folder for command xml
+
++ works with php5
+
++ uses (corrected) EPP Client class for PHP, Copyright 2005 CentralNic Ltd  
++ uses TinyButStrong - Template Engine for Pro and Beginners 
+
+  

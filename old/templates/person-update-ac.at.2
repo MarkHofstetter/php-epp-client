@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0
+     epp-1.0.xsd">
+  <command>
+    <update>
+      <contact:update
+       xmlns:contact="urn:ietf:params:xml:ns:contact-1.0"
+       xsi:schemaLocation="urn:ietf:params:xml:ns:contact-1.0
+       contact-1.0.xsd">
+       <contact:id>[onload;tplvars;handle][templ.handle]</contact:id>
+        <contact:chg>                 
+         <contact:postalInfo type="int">
+            <contact:addr>
+              <contact:street>[onload;tplvars;street1][templ.street1; magnet=contact:street; noerr]</contact:street>
+              <contact:street>[onload;tplvars;street2][templ.street2; magnet=contact:street; noerr]</contact:street>
+              <contact:street>[onload;tplvars;street3][templ.street3; magnet=contact:street; noerr]</contact:street>              
+              <contact:city>[onload;tplvars;city][templ.city; magnet=contact:city; noerr ]</contact:city>
+              <contact:sp>[onload;tplvars;sp][templ.sp; magnet=contact:sp; noerr]</contact:sp>
+              <contact:pc>[onload;tplvars;pc][templ.pc; magnet=contact:pc; noerr]</contact:pc>
+              <contact:cc>[onload;tplvars;cc][templ.cc; magnet=contact:cc; noerr]</contact:cc>           
+            </contact:addr>
+            <!-- [onload;tplvars;cc][templ.cc;magnet=contact:postalInfo] -->  
+          </contact:postalInfo>      
+           <contact:voice>[onload;tplvars;voice][templ.voice]</contact:voice>
+          <contact:fax>[onload;tplvars;fax][templ.fax]</contact:fax>
+          <contact:email>[onload;tplvars;email][templ.email]</contact:email>
+      </contact:chg>
+      </contact:update>
+    </update>
+   <extension>
+
+
+   
+  <ac-at-ext:data xmlns:ac-at-ext="http://ac.at/ac-at-ext-1.0" 
+       xsi:schemaLocation="http://ac.at/ac-at-ext-1.0    
+       ac-at-ext-1.0.xsd">
+       <ac-at-ext:entry name="owner-valid">    [onload;tplvars;ownervalid_acext][templ.ownervalid_acext] </ac-at-ext:entry> 
+       <ac-at-ext:entry name="FN">    [onload;tplvars;FN_acext][templ.FN_acext] </ac-at-ext:entry> 
+       <ac-at-ext:entry name="SKZ">   [onload;tplvars;SKZ_acext][templ.SKZ_acext] </ac-at-ext:entry> 
+       <ac-at-ext:entry name="ZVR">   [onload;tplvars;ZVR_acext][templ.ZVR_acext] </ac-at-ext:entry> 
+       <ac-at-ext:entry name="name">  [onload;tplvars;name_acext][templ.name_acext] </ac-at-ext:entry>
+       <ac-at-ext:entry name="tel">   [onload;tplvars;tel_acext][templ.tel_acext] </ac-at-ext:entry>
+       <ac-at-ext:entry name="email"> [onload;tplvars;email_acext][templ.email_acext] </ac-at-ext:entry>
+       <ac-at-ext:entry name="url">   [onload;tplvars;url_acext][templ.url_acext] </ac-at-ext:entry>
+    </ac-at-ext:data>       
+    </extension>
+    <clTRID>[onload;tplvars;trid][templ.trid]</clTRID>
+  </command>
+</epp>
+
+
